@@ -3,6 +3,9 @@ import java.util.Scanner;
 public  class BankingApplication {
 
     public static void main(String[] args) {
+    BankAccount user1;
+        user1 = new BankAccount("Michael Jackson", "MJ0010");
+        user1.showMenu();
 
     }
 }
@@ -29,7 +32,7 @@ class BankAccount
         }
     }
 
-    void withdraw( int amount)
+    void withdraw(int amount)
     {
         if(amount > 0)
         {
@@ -67,5 +70,59 @@ class BankAccount
         System.out.println("C. Withdraw");
         System.out.println("D. Previous Transaction");
         System.out.println("E. Exit");
+
+        do {
+            System.out.println("===========================================");
+            System.out.println("Select an Option");
+            System.out.println("===========================================");
+            userOption = scanner.next().toUpperCase().charAt(0);
+            System.out.println("\n");
+
+            switch(userOption)
+            {
+                case 'A':
+                    System.out.println("-------------------------");
+                    System.out.println("Balance = "+balance);
+                    System.out.println("-------------------------");
+                    System.out.println("\n");
+                    break;
+
+                case 'B':
+                    System.out.println("---------------------------------------------");
+                    System.out.println("Enter an amount to deposit: ");
+                    System.out.println("---------------------------------------------");
+                    int amountToDeposit = scanner.nextInt();
+                    deposit(amountToDeposit);
+                    System.out.println("\n");
+                    break;
+
+                case 'C':
+                    System.out.println("---------------------------------------------");
+                    System.out.println("Enter an amount to Withdraw: ");
+                    System.out.println("-------------------------");
+                    int amountToWithdraw = scanner.nextInt();
+                    withdraw(amountToWithdraw);
+                    System.out.println("\n");
+                    break;
+
+                case 'D':
+                    System.out.println("---------------------------------------------");
+                    getPreviousTransaction();
+                    System.out.println("---------------------------------------------");
+                    System.out.println("\n");
+                    break;
+
+                case 'E':
+                    System.out.println("*******************************************");
+                    break;
+
+                default:
+                    System.out.println("You've entered an Invalid option. Please try again.");
+                    break;
+
+            }
+
+        } while (userOption != 'E');
+        System.out.println("Thank you for using our services");
     }
 }
