@@ -12,8 +12,8 @@ public  class BankingApplication {
 
 class BankAccount
 {
-    int balance;
-    int previousTransaction;
+    double balance;
+    double previousTransaction;
     String customerName;
     String customerId;
 
@@ -23,7 +23,7 @@ class BankAccount
         customerId = custId;
     }
 
-    void deposit(int amount)
+    void deposit(double amount)
     {
         if(amount > 0)
         {
@@ -32,7 +32,7 @@ class BankAccount
         }
     }
 
-    void withdraw(int amount)
+    void withdraw(double amount)
     {
         if(amount > 0)
         {
@@ -91,7 +91,7 @@ class BankAccount
                     System.out.println("---------------------------------------------");
                     System.out.println("Enter an amount to deposit: ");
                     System.out.println("---------------------------------------------");
-                    int amountToDeposit = scanner.nextInt();
+                    double amountToDeposit = scanner.nextDouble();
                     deposit(amountToDeposit);
                     System.out.println("\n");
                     break;
@@ -100,7 +100,7 @@ class BankAccount
                     System.out.println("---------------------------------------------");
                     System.out.println("Enter an amount to Withdraw: ");
                     System.out.println("-------------------------");
-                    int amountToWithdraw = scanner.nextInt();
+                    double amountToWithdraw = scanner.nextDouble();
                     withdraw(amountToWithdraw);
                     System.out.println("\n");
                     break;
@@ -118,6 +118,7 @@ class BankAccount
 
                 default:
                     System.out.println("You've entered an Invalid option. Please try again.");
+
                     break;
 
             }
